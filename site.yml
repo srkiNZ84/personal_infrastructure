@@ -1,0 +1,40 @@
+#- hosts: all
+#  roles:
+#    - { role: common }
+
+- hosts: aws-setup
+  roles:
+    - { role: vpc-setup, vpc_name: "Main VPC" }
+#    - { role: subnet-setup }
+#    - { role: security-keys-setup }
+#    - { role: route-table-setup }
+#    - { role: gateway-setup }
+#    - { role: network-acl-setup }
+#    - { role: s3-setup }
+
+#- hosts: metrics
+#  roles:
+#    - { role: carbon }
+#    - { role: graphite }
+
+#- hosts: dns-servers
+#  roles:
+#    - { role: bind }
+#    - { role: collectd, collectd_plugins: ['bind','write_graphite'] }
+
+#- hosts: mail-servers
+#  roles:
+#    - { role: postfix }
+#    - { role: dovecot }
+#    - { role: dkim }
+#    - { role: collectd, collectd_plugins: ['tail', 'write_graphite'] }
+
+#- hosts: database-servers
+#  roles:
+#    - { role: mysql }
+#    - { role: backup-to-s3 }
+
+#- hosts: web-servers
+#  roles:
+#    - { role: wordpress }
+#    - { role: collectd, collectd_plugins: ['apache', 'write_graphite'] }
