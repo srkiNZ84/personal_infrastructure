@@ -1,32 +1,31 @@
+#- name: Check we are using the right AWS keys
+#  debug: msg="Access key is {{ aws_access_key }}, secret key is {{ aws_secret_key }}"
+
 - name: Create VPC
   ec2_vpc:
-    aws_access_key: {{ aws_access_key }}
-    aws_secret_key: {{ aws_secret_key }}
-    cidr_block: 10.0.0.0/16
-      resource_tags: { "Name" : {{ vpc_name }} }
-      subnets:
-        - cidr: {{ subnet_cidr }}
-          #az: us-west-2c
-          resource_tags: { "Name" : {{ subnet_name }} }
-        #- cidr: 10.0.1.0/24
-          #az: us-west-2b
-          #resource_tags: { "Name" : "Management subnet" }
-        #- cidr: 10.0.2.0/24
-          #az: us-west-2a
-          #resource_tags: { "Name" : "Dev", "Tier" : "DB" }
-      with_items: "{{ vpc_subnets }}"
-      internet_gateway: True
-      route_tables:
-        - subnets:
-            - 172.22.2.0/24
-            - 172.22.3.0/24
-          routes:
-            - dest: 0.0.0.0/0
-              gw: igw
-        - subnets:
-            - 172.22.1.0/24
-          routes:
-            - dest: 0.0.0.0/0
-              gw: igw
-      region: us-west-2
-    register: vpc
+    aws_access_key: "{{ amazon_access_key }}"
+    aws_secret_key: "{{ amazon_secret_key }}"
+    cidr_block: "{{ vpc_cidr_block }}"
+    resource_tags: { "Name" : "{{ vpc_name }}" }
+    subnets: "{{ subnet_list }}"
+      #- cidr: "{{ item.subnet_cidr }}"
+      #  resource_tags: { "Name" : "{{ item.subnet_name }}" }
+    region: us-east-1
+  with_items: subnet_list
+  register: vpc
+
+##      internet_gateway: True
+##      route_tables:
+##        - subnets:
+##            - 172.22.2.0/24
+##            - 172.22.3.0/24
+##          routes:
+##            - dest: 0.0.0.0/0
+##              gw: igw
+##        - subnets:
+##            - 172.22.1.0/24
+##          routes:
+##            - dest: 0.0.0.0/0
+##              gw: igw
+##      region: us-west-2
+##    register: vpc
