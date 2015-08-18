@@ -5,10 +5,7 @@
 - hosts: aws-setup
   roles:
     - { role: vpc-setup, vpc_name: "Main VPC" }
-#    - { role: subnet-setup }
 #    - { role: security-keys-setup }
-#    - { role: route-table-setup }
-#    - { role: gateway-setup }
 #    - { role: network-acl-setup }
 #    - { role: s3-setup }
 
