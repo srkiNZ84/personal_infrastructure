@@ -8,13 +8,12 @@
     cidr_block: "{{ vpc_cidr_block }}"
     resource_tags: { "Name" : "{{ vpc_name }}" }
     subnets: "{{ subnet_list }}"
-      #- cidr: "{{ item.subnet_cidr }}"
-      #  resource_tags: { "Name" : "{{ item.subnet_name }}" }
     region: us-east-1
   with_items: subnet_list
   register: vpc
-
-##      internet_gateway: True
+  internet_gateway: True
+  dns_hostnames: yes
+  dns_support: yes
 ##      route_tables:
 ##        - subnets:
 ##            - 172.22.2.0/24
