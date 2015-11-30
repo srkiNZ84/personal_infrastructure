@@ -12,7 +12,9 @@ working.
 ## How to use
 The current plan is to make the code generic enough that you only need to specify an environment file and run the
 `site.yml` playbook to bring up the infrastructure from scratch or alternatively modify the existing infrastructure to
-match the new configuraiton. Details to come as the project grows.
+match the new configuration. e.g. `ansible-playbook -i hosts site.yml --ask-vault-pass --connection=local`
+
+Details to come as the project matures.
 
 ## Contributions
 If you would like to contribute, please submit a pull request or open an issue on the project.

@@ -3,6 +3,7 @@
 #    - { role: common }
 
 - hosts: aws-setup
+  connection: local
   roles:
     - { role: vpc-setup, vpc_name: "Main VPC" }
 #    - { role: security-keys-setup }
