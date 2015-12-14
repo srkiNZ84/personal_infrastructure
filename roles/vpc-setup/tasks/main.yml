@@ -11,9 +11,12 @@
     internet_gateway: True
     dns_hostnames: yes
     dns_support: yes
-    region: us-east-1
-  with_items: subnet_list
+    region: "{{ amazon_region }}"
   register: vpc
+
+- name: Print out VPC object
+  debug: var="{{ vpc }}"
+  when: debug_playbook is defined
 
 - name: See if we have created a new VPC or not
   debug: msg="New VPC created with id {{ vpc.vpc_id }}"
