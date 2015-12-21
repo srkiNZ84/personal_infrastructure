@@ -1,0 +1,11 @@
+- name: Create subnet for monitoring
+  debug: msg="TODO"
+
+- name: Create security group(s) for monitoring
+  debug: msg="TODO"
+
+- name: Enable access from the management subnet
+  debug: msg="TODO"
+
+- name: Create monitoring instance(s)
+  debug: msg="TODO"

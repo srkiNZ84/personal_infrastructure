@@ -1,0 +1,17 @@
+- name: Create blog subnet
+  debug: msg="TODO"
+
+- name: Create blog security groups
+  debug: msg="TODO"
+
+- name: Enable management subnet access
+  debug: msg="TODO"
+
+- name: Enable monitoring subnet access
+  debug: msg="TODO"
+
+- name: Ensure database is accessible
+  debug: msg="TODO"
+
+- name: Create blog instance
+  debug: msg="TODO"

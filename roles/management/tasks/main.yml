@@ -1,0 +1,11 @@
+- name: Create subnet for management
+  debug: msg="TODO"
+
+- name: Create security groups for management
+  debug: msg="TODO"
+
+- name: Create OpenVPN instance for remote access
+  debug: msg="TODO"
+
+- name: Create LDAP instance for auth
+  debug: msg="TODO"
