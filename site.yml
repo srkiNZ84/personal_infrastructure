@@ -5,8 +5,9 @@
 - hosts: aws-setup
   connection: local
   roles:
-    - { role: vpc-setup, vpc_name: "Main VPC" }
-    - { role: security-keys-setup }
+    - { role: vpc-setup, vpc_name: "Main VPC", tags: ['vpc','vpc-setup'] }
+    - { role: security-keys-setup, tags: ['security-keys','ssh-keys'] }
+    - { role: security-group-setup, tags: ['security-group', 'secgroups'] }
     #- { role: network-acl-setup }
     #- { role: s3-setup }
 

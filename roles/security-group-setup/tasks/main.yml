@@ -1,0 +1,7 @@
+- name: Load the security groups from template
+  set_fact:
+    security_groups: "{{ lookup('template', '../templates/sec_groups.yml.j2') | from_yaml }}"
+
+- name: Print out the security groups loaded
+  debug: msg="{{ security_groups }}"
+  when: debug_playbook is defined

@@ -1,0 +1,19 @@
+- name: ssh-access
+  desc: "Security group to add ssh only access"
+  rules:
+    - proto: tcp
+      from_port: 22
+      to_port: 22
+      cidr_ip: "0.0.0.0/32"
+
+- name: http-access
+  desc: "Security group to add HTTP and HTTPS access"
+  rules:
+    - proto: tcp
+      from_port: 80
+      to_port: 80
+      cidr_ip: "0.0.0.0/32"
+    - proto: tcp
+      from_port: 443
+      to_port: 443
+      cidr_ip: "0.0.0.0/32"
