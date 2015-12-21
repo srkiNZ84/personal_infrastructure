@@ -1,0 +1,25 @@
+- name: Create a new SSH key
+  # TODO Generate a key for every "service" instead of one key for everything
+  # TODO Get keys from YAML file and run this in a loop
+  ec2_key:
+    name: "default-aws-key"
+    aws_access_key: "{{ amazon_access_key }}"
+    aws_secret_key: "{{ amazon_secret_key }}"
+    region: "{{ amazon_region }}"
+  register: generated_default_key
+
+- name: Upload local SSH key to AWS
+  debug: msg="TODO Optionally get the key from our local disk and use that"
+
+- name: Print out generated key
+  debug: msg="{{ generated_default_key }}"
+  when: debug_playbook is defined
+
+- name: Save generated file to disk
+  copy: content="{{ generated_default_key.key.private_key }}" dest="keys/generated_default_key.key"
+
+- name: Add SSH keys to DNS
+  # TODO References:
+  # http://fanf.livejournal.com/130577.html
+  # http://jpmens.net/2012/02/01/on-collecting-ssh-host-keys-for-sshfp-dns-records/
+  debug: msg="TODO As per http://www.openssh.com/txt/rfc4255.txt"
