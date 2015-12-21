@@ -5,3 +5,15 @@
 - name: Print out the security groups loaded
   debug: msg="{{ security_groups }}"
   when: debug_playbook is defined
+
+- name: Create the security groups
+  ec2_group:
+    name: "{{ item.name }}"
+    description: "{{ item.desc }}"
+    vpc_id: "{{ vpc.vpc_id }}"
+    region: "{{ amazon_region }}"
+    ec2_access_key: "{{ amazon_access_key }}"
+    ec2_secret_key: "{{ amazon_secret_key }}"
+    rules: "{{ item.rules }}"
+  with_items: security_groups
+  register: sec_group_results
