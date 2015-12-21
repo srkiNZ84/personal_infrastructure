@@ -1,5 +1,6 @@
 - name: Check we are using the right AWS keys
   debug: msg="Access key is {{ amazon_access_key }}, secret key is {{ amazon_secret_key }}"
+  when: debug_playbook is defined
 
 - name: Create VPC
   ec2_vpc:
