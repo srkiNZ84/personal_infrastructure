@@ -1,0 +1,17 @@
+- name: Install Apache and PHP
+  debug: msg="TODO"
+
+- name: Install Wordpress
+  debug: msg="TODO"
+
+- name: Install Plugins
+  debug: msg="TODO"
+
+- name: Restore Database
+  debug: msg="TODO"
+
+- name: Configure Apache
+  debug: msg="TODO"
+
+- name: Reload Apache
+  debug: msg="TODO"

@@ -33,7 +33,7 @@
 #    - { role: mysql }
 #    - { role: backup-to-s3 }
 
-#- hosts: web-servers
-#  roles:
-#    - { role: wordpress }
-#    - { role: collectd, collectd_plugins: ['apache', 'write_graphite'] }
+- hosts: web-servers
+  roles:
+    - { role: wordpress }
+    - { role: collectd, collectd_plugins: ['apache', 'write_graphite'] }
